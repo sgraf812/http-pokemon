@@ -85,7 +85,7 @@ construct_pokemon_url id = api_base_url ++ "api/v1/pokemon/" ++ show id ++ "/"
 get_pokemon :: Int -> IO (Either String Pokemon)
 get_pokemon id = fmap eitherDecode $ simpleHttp (construct_pokemon_url id)
 
-main = do pokemon_id <- randomRIO (0,251)
+main = do pokemon_id <- randomRIO (0,151)
           putStrLn $ "Looking up: " ++ show (pokemon_id :: Int)
           maybe_poke <- get_pokemon pokemon_id 
           case maybe_poke of
